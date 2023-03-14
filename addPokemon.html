@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Add Pokemon</title>
+</head>
+
+<body id="addPokemonapp">
+
+    <div class="jumbotron">
+        <h1>Add Pokemon</h1>
+    </div>
+
+
+    <div class="container">
+        <a href="index.html"><button class="btn btn-warning">Back to List</button></a>
+    </div>
+
+    <div class="container" >
+        <input type="text" v-model="Name" placeholder="Name">
+        <input type="number" v-model.number="Level" placeholder="Level">
+        <input type="number" v-model.number="Pokedex" placeholder="Pokedex">
+        
+        <button id="savebutton" class="btn btn-success" v-on:click="Save(Name, Pokedex, Level)">Save</button>
+        
+
+    </div>
+    <div class="response"></div>
+
+    <script src="addPokemon.js"></script>
+</body>
+
+</html>

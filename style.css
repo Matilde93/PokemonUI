@@ -1,0 +1,14 @@
+button{
+    margin: 5px;
+}
+input{
+    margin: 2px 2px 2px 2px;
+}
+a{
+    text-decoration-style: none;
+    color: white;
+}
+a:hover{
+    color:white;
+    text-decoration:none;
+}

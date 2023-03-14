@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Pokemon API</title>
+
+</head>
+
+<body id="app">
+
+    <div class="jumbotron">
+        <h1>Pokemon API</h1>
+    </div>
+
+    <div class="container">
+        <button class="btn btn-success" v-on:click="showAll">Show all Pokemons</button>
+        <button class="btn btn-primary"><a href="addPokemon.html" target="_self">Add Pokemon</a></button>
+        <br/><hr>
+
+        <input type="number" v-model.number="Pokedex" placeholder="Insert pokedex">
+        <input type="number" v-model.number="MinLevel" placeholder="Insert Min Level">
+        <input type="number" v-model.number="MaxLevel" placeholder="Insert Max Level">
+        <input type="text" v-model="Name" placeholder="Insert Name">
+
+        
+        <button class="btn btn-primary" v-on:click="search(MaxLevel, MinLevel, Pokedex, Name)">Search</button>
+        <button class="btn btn-warning" v-on:click="cleanList">Clear the list</button>
+        
+        
+        <div v-if="error" style="color: red">{{error}}</div>
+
+        
+        <table v-if="pokemons.length" class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Pokedex</th>
+                <th>Level</th>
+            </tr>
+            <tr v-for="pokemon in pokemons">
+                <td>{{pokemon.id}}</td>
+                <td>{{pokemon.name}}</td>
+                <td>{{pokemon.pokedex}}</td>
+                <td>{{pokemon.level}}</td>
+            </tr>             
+        </table>
+
+        <div v-else style="font-style: italic;">No such pokemon</div>
+
+
+    </div>
+   
+    <script src="index.js"></script>
+
+</body>
+
+</html>
